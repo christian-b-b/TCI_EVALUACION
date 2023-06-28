@@ -1,7 +1,6 @@
 package com.tci.evaluacion.controllers;
 
 import com.tci.evaluacion.constants.TciConstants;
-import com.tci.evaluacion.models.Empresa;
 import com.tci.evaluacion.service.EmpresaService;
 import com.tci.evaluacion.tdos.request.EmpresaRequestDTO;
 import com.tci.evaluacion.tdos.response.EmpresaResponseDTO;
@@ -19,8 +18,8 @@ public class EmpresaController {
     private EmpresaService empresaService;
 
     @PostMapping(TciConstants.RESOURCE_EMPRESA_REGISTRO)
-    public ResponseEntity<Empresa> registro(@RequestBody EmpresaRequestDTO empresaDTO){
-        return new ResponseEntity<Empresa>(empresaService.crear(empresaDTO),null, HttpStatus.OK);
+    public ResponseEntity<EmpresaResponseDTO> registro(@RequestBody EmpresaRequestDTO empresaRequestDTO){
+        return new ResponseEntity<EmpresaResponseDTO>(empresaService.crear(empresaRequestDTO),null, HttpStatus.OK);
     }
 
     @GetMapping(TciConstants.RESOURCE_EMPRESA_LISTADO)

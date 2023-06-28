@@ -2,7 +2,6 @@ package com.tci.evaluacion.constants;
 
 public class TciConstants {
     public static final Integer ACTIVE_STATE =1;
-    public static final Integer INACTIVE_STATE =0;
     public static final Integer MAXIMO_REGISTROS =3;
     public static final String API_VERSION = "/v1";
     public static final String RESOURCE_EMPRESA = "/empresa";

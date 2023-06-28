@@ -31,15 +31,21 @@ public class EmpresaServiceImpl implements EmpresaService {
     }
 
     @Override
-    public Empresa crear(EmpresaRequestDTO empresaDTO) {
+    public EmpresaResponseDTO crear(EmpresaRequestDTO empresaRequestDTO) {
         Empresa empresa = Empresa.builder()
-                .ruc(empresaDTO.getRuc())
-                .razonSocial(empresaDTO.getRazonSocial())
-                .direccion(empresaDTO.getDireccion())
+                .ruc(empresaRequestDTO.getRuc())
+                .razonSocial(empresaRequestDTO.getRazonSocial())
+                .direccion(empresaRequestDTO.getDireccion())
                 .estado(TciConstants.ACTIVE_STATE)
                 .build();
+        empresaDao.save(empresa);
 
-        return empresaDao.save(empresa);
+        return EmpresaResponseDTO.builder()
+                .idEmpresa(empresa.getIdEmpresa())
+                .ruc(empresa.getRuc())
+                .razonSocial(empresa.getRazonSocial())
+                .direccion(empresa.getDireccion())
+                .estado(empresa.getEstado()).build();
     }
 
 

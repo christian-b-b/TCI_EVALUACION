@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 
 @Data
-//@AllArgsConstructor
 @NoArgsConstructor
 public class TciGenericServerException extends  RuntimeException {
 
